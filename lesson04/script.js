@@ -1,7 +1,7 @@
 "use strict";
 let money = 40000;
 let income = 25000;
-let addExpenses = "Каршеринг, Кварплата, Телефон, Интернет";
+let addExpenses;
 let deposit = true;
 let mission = 182000;
 let period = 7;
@@ -11,18 +11,19 @@ let showTypeOf = function (data) {
 showTypeOf(money)
 showTypeOf(income)
 showTypeOf(deposit);
-console.log(addExpenses.length);
+//console.log(addExpenses.length);
 console.log('"Период равен ' + period + ' месяцев"');
 console.log('"Цель заработать ' + mission + ' рублей"');
-addExpenses = addExpenses.toLowerCase();
-console.log(addExpenses.split(", "));
+//addExpenses = addExpenses.toLowerCase();
+
 // let budgetDay = money / 30;
 // console.log(budgetDay);
 
 money = +prompt("Ваш месячный доход");
 //console.log(money);
-addExpenses += ", " + prompt("Перечислите возможные расходы за рассчитываемый период через запятую");
+addExpenses = prompt("Перечислите возможные расходы за рассчитываемый период через запятую");
 console.log(addExpenses);
+console.log(addExpenses.split(", "));
 deposit = confirm("Есть ли у вас депозит в банке?");
 console.log(deposit);
 let expenses1 = prompt("Введите обязательную статью расходов?");
@@ -50,9 +51,9 @@ const getTargetMonth = function (a, b) {
   return a / b;
 }
 let TargetMonth = getTargetMonth(mission, accumulatedMonth);
-console.log('Период за который будет достигнута цель: ', Math.floor(TargetMonth)); //4);
+console.log('Период за который будет достигнута цель: ' + Math.floor(TargetMonth)); //4);
 let budgetDay = accumulatedMonth / 30;
-console.log('Накопление за день: ', budgetDay); //6 
+console.log('Накопление за день: ', Math.floor(budgetDay)); //6 
 let getStatusIncome = function () {
   if (accumulatedMonth >= 1200) {
     return ("У Вас высокий уровень дохода");
