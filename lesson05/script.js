@@ -58,7 +58,7 @@ let getExpensesMonth = function () {
     }
     while (!isNumber(question))
     console.log(question);
-    sum += question;
+    sum += parseInt(question);
   };
   return sum;
 };
