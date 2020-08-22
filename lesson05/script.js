@@ -20,11 +20,13 @@ let start = function () {
   do {
     money = prompt("Ваш месячный доход");
   } while (!isNumber(money));
+  money = parseInt(money);
 };
 start();
 
 let showTypeOf = function (data) {
   console.log(data, typeof data);
+
 };
 showTypeOf(money);
 showTypeOf(income);
@@ -79,26 +81,24 @@ if (targetMonth > 0) {
   console.log(
     "Период за который будет достигнута цель: " + Math.floor(targetMonth)
   );
-
-  //4);
-  let budgetDay = accumulatedMonth / 30;
-  console.log("Накопление за день: ", Math.floor(budgetDay)); //6
-  let getStatusIncome = function () {
-    if (accumulatedMonth >= 1200) {
-      return "У Вас высокий уровень дохода";
-    }
-    if (accumulatedMonth < 1200 && accumulatedMonth >= 600) {
-      return "У Вас средний уровень дохода";
-    }
-    if (accumulatedMonth < 600 && accumulatedMonth >= 0) {
-      return "К сожалению у вас уровень дохода ниже среднего";
-    }
-    if (accumulatedMonth < 0) {
-      return "Что то пошло не так";
-    }
-  };
-
-  console.log(getStatusIncome());
 } else {
   console.log("Цель не будет достигнута");
 }
+let budgetDay = accumulatedMonth / 30;
+console.log("Накопление за день: ", Math.floor(budgetDay)); //6
+let getStatusIncome = function () {
+  if (accumulatedMonth >= 1200) {
+    return "У Вас высокий уровень дохода";
+  }
+  if (accumulatedMonth < 1200 && accumulatedMonth >= 600) {
+    return "У Вас средний уровень дохода";
+  }
+  if (accumulatedMonth < 600 && accumulatedMonth >= 0) {
+    return "К сожалению у вас уровень дохода ниже среднего";
+  }
+  if (accumulatedMonth < 0) {
+    return "Что то пошло не так";
+  }
+};
+
+console.log(getStatusIncome());
