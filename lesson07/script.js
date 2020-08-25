@@ -25,17 +25,16 @@ let appData = {
     );
     appData.addExpenses = addExpenses.toLowerCase().split(", ");
     appData.deposit = confirm("Есть ли у вас депозит в банке?");
-    let expensesAsk = [];
+    let expensesAsk;
     let question;
     for (let i = 0; i < 2; i++) {
-      expensesAsk[i] = prompt("Введите обязательную статью расходов?");
+      expensesAsk = prompt("Введите обязательную статью расходов?");
       do {
         question = parseInt(prompt("Во сколько это обойдется?"));
       }
       while (!isNumber(question));
       appData.expenses[expensesAsk] = question;
     };
-
   },
   getExpensesMonth: function () {
     let sum = 0;
