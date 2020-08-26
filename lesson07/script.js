@@ -30,11 +30,11 @@ let appData = {
     for (let i = 0; i < 2; i++) {
       expensesAsk = prompt("Введите обязательную статью расходов?");
       do {
-        question = parseInt(prompt("Во сколько это обойдется?"));
-      }
-      while (!isNumber(question));
+        question = prompt("Во сколько это обойдется?");
+      } while (!isNumber(question));
+      question = parseInt(question);
       appData.expenses[expensesAsk] = question;
-    };
+    }
   },
   getExpensesMonth: function () {
     let sum = 0;
@@ -49,7 +49,7 @@ let appData = {
     appData.budgetDay = Math.floor(appData.budgetMonth / 30);
   },
   getTargetMonth: function () {
-    return (Math.floor(appData.mission / appData.budgetMonth));
+    return Math.floor(appData.mission / appData.budgetMonth);
   },
   getStatusIncome: function () {
     if (appData.budgetDay >= 1200) {
@@ -68,9 +68,9 @@ let appData = {
   budget: money,
   budgetDay: 0,
   budgetMonth: 0,
-  expensesMonth: 0
+  expensesMonth: 0,
 };
-appData.asking()
+appData.asking();
 console.log(appData.addExpenses);
 appData.getExpensesMonth();
 console.log("Расходы за месяц ", appData.expensesMonth);
@@ -79,12 +79,13 @@ appData.getBudget();
 appData.getStatusIncome();
 if (appData.getTargetMonth() > 0) {
   console.log(
-    "Период за который будет достигнута цель: " + Math.floor(appData.getTargetMonth())
+    "Период за который будет достигнута цель: " +
+      Math.floor(appData.getTargetMonth())
   );
 } else {
   console.log("Цель не будет достигнута");
 }
-console.log('Наша программа включает в себя данные:')
+console.log("Наша программа включает в себя данные:");
 for (let key in appData) {
-  console.log(key, appData[key])
-};
+  console.log(key, appData[key]);
+}
